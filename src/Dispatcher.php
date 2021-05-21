@@ -84,10 +84,8 @@ class Dispatcher implements DispatcherInterface
      */
     public function addSubscriber(SubscriberInterface $subscriber, int $priority = 1): void
     {
-        foreach ($subscriber->Listeners() as $listeners) {
-            foreach ($listeners as $listener) {
-                $this->addListener($listener, $priority);
-            }
+        foreach ($subscriber->Listeners() as $listener) {
+            $this->addListener($listener, $priority);
         }
     }
 
